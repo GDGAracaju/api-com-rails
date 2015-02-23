@@ -1,0 +1,29 @@
+<h3>Eventos</h3>
+<hr/>
+
+<div class='col-md-12 text-right'>
+  <%= link_to("Cadastrar Evento", new_event_path, class: "btn btn-primary") %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <th></th>
+    <th>Data do Evento</th>
+    <th>Título</th>
+    <th>Descrição</th>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td>
+          <%= link_to("Editar", edit_event_path(event)) %>
+          <%= link_to("Remover", event_path(event), method: :delete, data: { confirm: "Deseja remover o evento #{event.title}?" }) %>
+        </td>
+        <td><%= event.event_date %></td>
+        <td><%= event.title %></td>
+        <td><%= event.description.html_safe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

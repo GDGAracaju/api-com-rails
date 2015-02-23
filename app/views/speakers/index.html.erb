@@ -1,0 +1,29 @@
+<h3>Palestrantes</h3>
+<hr/>
+
+<div class='col-md-12 text-right'>
+  <%= link_to("Cadastrar Palestrante", new_speaker_path, class: "btn btn-primary") %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <th></th>
+    <th>Nome</th>
+    <th>Bio</th>
+    <th>Url do GooglePlus</th>
+  </thead>
+  <tbody>
+    <% @speakers.each do |speaker| %>
+      <tr>
+        <td>
+          <%= link_to("Editar", edit_speaker_path(speaker)) %>
+          <%= link_to("Remover", speaker_path(speaker), method: :delete, data: { confirm: "Deseja remover o palestrante #{speaker.name}?" }) %>
+        </td>
+        <td><%= speaker.name %></td>
+        <td><%= speaker.bio %></td>
+        <td><%= speaker.gplus %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

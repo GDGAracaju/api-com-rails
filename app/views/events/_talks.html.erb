@@ -1,0 +1,13 @@
+<div class='form-group'>
+  <div class='row'>
+    <div class='col-md-6'>
+      <%= t.input :title, label: 'Título da Palestra', input_html: { class: 'form-control' } %>
+    </div>
+    <div class='col-md-6'>
+      <%= t.association :speaker, label: 'Palestrante', label_method: :name, value_method: :id, include_blank: false, input_html: { class: 'form-control' } %>
+    </div>
+  </div>
+</div>
+<div class='form-group'>
+  <%= t.input :description, as: :text, label: 'Descrição da Palestra', input_html: { class: 'form-control', rows: 3 } %>
+</div>
